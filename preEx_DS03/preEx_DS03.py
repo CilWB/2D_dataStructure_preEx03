@@ -104,19 +104,50 @@ def  delRepeat(LL):
             LL.remove(LL.findfromN(cnt2,t.data))
         t = t.next
 
-def defAll(LL,s):
+def delAll(LL,s):
     lenS = len(s)
     lenLL = LL.size()
-    for i in range(1,lenLL+1) :
-        pass
-
+    i=1
+    while i+lenS < LL.size()+2 :
+            #print(LL.getStrfromXtoY(i,i+lenS-1))
+            if LL.getStrfromXtoY(i,i+lenS-1)==s:
+                #print('found')
+                if i == 1 :
+                    LL.head = LL.at(lenS+1)
+                else:
+                    LL.at(i-1).next = LL.at(i+lenS-1).next
+            else:
+                i+=1
+    return LL
 ############ Question 3 ############   
 print('--no 3--')
 s1 = 'hellohhello!!hello'
+s2 = 'hellhhello!!hello'
+s3 = 'hellhhel!!hello'
+s4 = 'abcd'
+
 s = 'hello'
 l = [e for e in s1]
 h = createList(l)
 print(h)
+h = delAll(h,s)
+print(h)
+
+#l = [e for e in s2]
+#h = createList(l)
+#print(h)
+#h = delAll(h,s)
+#print(h)
+
+#l = [e for e in s3]
+#h = createList(l)
+#print(h)
+#h = delAll(h,s)
+#print(h)
+
+#l = [e for e in s4]
+#h = createList(l)
+#print(h)
 #h = delAll(h,s)
 #print(h)
 
